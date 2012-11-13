@@ -731,8 +731,8 @@ def check_queues(con, warning, critical, perf_data):
         return exit_with_general_critical(e)
 
 def check_queries_per_second(con, query_type, warning, critical, perf_data):
-    warning = warning or 250
-    critical = critical or 500
+    warning = warning or 3000   # was 250
+    critical = critical or 5000 # was 500
 
     if query_type not in ['insert', 'query', 'update', 'delete', 'getmore', 'command']:
         return exit_with_general_critical("The query type of '%s' is not valid" % query_type)
